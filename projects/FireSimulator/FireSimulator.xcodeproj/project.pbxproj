@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A37098B289C445E00D9DEB4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A37098A289C445E00D9DEB4 /* main.cpp */; };
+		5A6498E2289CFD300028466B /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A6498E0289CFD300028466B /* Screen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,8 @@
 		5A370987289C445E00D9DEB4 /* FireSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FireSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A37098A289C445E00D9DEB4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5A6498DF289CF0470028466B /* FireSimulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireSimulator.entitlements; sourceTree = "<group>"; };
+		5A6498E0289CFD300028466B /* Screen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		5A6498E1289CFD300028466B /* Screen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 			children = (
 				5A6498DF289CF0470028466B /* FireSimulator.entitlements */,
 				5A37098A289C445E00D9DEB4 /* main.cpp */,
+				5A6498E1289CFD300028466B /* Screen.h */,
+				5A6498E0289CFD300028466B /* Screen.cpp */,
 			);
 			path = FireSimulator;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A37098B289C445E00D9DEB4 /* main.cpp in Sources */,
+				5A6498E2289CFD300028466B /* Screen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

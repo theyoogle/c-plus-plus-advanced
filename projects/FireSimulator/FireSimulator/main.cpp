@@ -9,75 +9,25 @@
 using namespace std;
 
 #include <SDL.h>
+#include "Screen.h"
 
 int main(int argc, const char * argv[]) {
     
-    const int SCREEN_WIDTH = 800;
-    const int SCREEN_HEIGHT = 600;
-    
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        cout << "SDL init failed." << endl;
-        return 1;
-    }
-    cout << "SDL init success." << endl;
-    
-    SDL_Window* window = SDL_CreateWindow("Particle Fire Explosion", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-    
-    if (window == NULL) {
-        cout << "Could not create window." << endl;
-        SDL_Quit();
-        return 2;
+    Screen screen;
+    if (screen.init() == false) {
+        cout << "Error initialising SDL." << endl;
     }
     
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-    if (renderer == NULL) {
-        cout << "Could not create renderer." << endl;
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 3;
-    }
-    
-    SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HEIGHT);
-    if (texture == NULL) {
-        cout << "Could not create texture." << endl;
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 4;
-    }
-    
-    int N = SCREEN_WIDTH * SCREEN_HEIGHT;
-    Uint32* pixels = new Uint32[N];
-    memset(pixels, 0, N * sizeof(Uint32));
-    
-    for (int i=0; i<N; i++) {
-        pixels[i] = 0x0000FFFF;
-    }
-    
-    SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
-    SDL_RenderPresent(renderer);
-    
-    bool quit = false;
-    SDL_Event event;
-    
-    while (!quit) {
+    while (true) {
         // Update particles
         // Draw particles
         // Check for messages/events
         
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                quit = true;
-            }
+        if (screen.processEvents() == false) {
+            break;
         }
     }
     
-    delete[] pixels;
-    SDL_DestroyTexture(texture);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    screen.close();
     return 0;
 }
