@@ -12,13 +12,15 @@
 
 class Screen {
 public:
-    const int SCREEN_WIDTH = 800;
-    const int SCREEN_HEIGHT = 600;
+    const static int SCREEN_WIDTH = 800;
+    const static int SCREEN_HEIGHT = 600;
     
     Screen();
     
     bool init();
     bool processEvents();
+    void update();
+    void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
     void close();
     
 private:

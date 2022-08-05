@@ -10,6 +10,7 @@ using namespace std;
 
 #include <SDL.h>
 #include "Screen.h"
+#include <math.h>
 
 int main(int argc, const char * argv[]) {
     
@@ -19,9 +20,19 @@ int main(int argc, const char * argv[]) {
     }
     
     while (true) {
-        // Update particles
-        // Draw particles
-        // Check for messages/events
+        
+        int elapsed = SDL_GetTicks();
+        int red = (1 + sin(elapsed * 0.0001)) * 128;
+        int green = (1 + sin(elapsed * 0.0002)) * 128;
+        int blue = (1 + sin(elapsed * 0.0003)) * 128;
+        
+        for (int y=0; y<Screen::SCREEN_HEIGHT; y++) {
+            for (int x=0; x<Screen::SCREEN_WIDTH; x++) {
+                screen.setPixel(x, y, red, green, blue);
+            }
+        }
+        
+        screen.update();
         
         if (screen.processEvents() == false) {
             break;

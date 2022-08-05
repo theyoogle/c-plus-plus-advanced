@@ -38,17 +38,8 @@ bool Screen::init() {
     }
     
     int N = SCREEN_WIDTH * SCREEN_HEIGHT;
-    Uint32* pixels = new Uint32[N];
+    pixels = new Uint32[N];
     memset(pixels, 0, N * sizeof(Uint32));
-    
-    for (int i=0; i<N; i++) {
-        pixels[i] = 0x0000FFFF;
-    }
-    
-    SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
-    SDL_RenderPresent(renderer);
     
     return true;
 }
@@ -60,6 +51,28 @@ bool Screen::processEvents() {
         }
     }
     return true;
+}
+
+void Screen::update() {
+    SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
+}
+
+void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
+    
+    Uint32 color = 0;
+
+    color += red;
+    color <<= 8;
+    color += green;
+    color <<= 8;
+    color += blue;
+    color <<= 8;
+    color += 0xFF;
+    
+    pixels[(SCREEN_WIDTH * y) + x] = color;
 }
 
 void Screen::close() {
