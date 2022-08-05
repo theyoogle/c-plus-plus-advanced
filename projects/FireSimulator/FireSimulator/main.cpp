@@ -46,9 +46,13 @@ int main(int argc, const char * argv[]) {
         return 4;
     }
     
-    Uint32* pixels = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+    int N = SCREEN_WIDTH * SCREEN_HEIGHT;
+    Uint32* pixels = new Uint32[N];
+    memset(pixels, 0, N * sizeof(Uint32));
     
-    memset(pixels, 0xFF, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+    for (int i=0; i<N; i++) {
+        pixels[i] = 0x0000FFFF;
+    }
     
     SDL_UpdateTexture(texture, NULL, pixels, SCREEN_WIDTH * sizeof(Uint32));
     SDL_RenderClear(renderer);
