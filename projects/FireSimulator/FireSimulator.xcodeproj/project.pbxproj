@@ -33,6 +33,7 @@
 		5A6498E4289E07B80028466B /* Particle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		5A6498E6289E0A850028466B /* Swarm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swarm.cpp; sourceTree = "<group>"; };
 		5A6498E7289E0A850028466B /* Swarm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swarm.h; sourceTree = "<group>"; };
+		5A6498E9289E16420028466B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 				5A6498E4289E07B80028466B /* Particle.h */,
 				5A6498E7289E0A850028466B /* Swarm.h */,
 				5A6498E6289E0A850028466B /* Swarm.cpp */,
+				5A6498E9289E16420028466B /* README.md */,
 			);
 			path = FireSimulator;
 			sourceTree = "<group>";

@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
         int green = (1 + sin(elapsed * 0.0002)) * 128;
         int blue = (1 + sin(elapsed * 0.0003)) * 128;
         
-        swarm.update();
+        swarm.update(elapsed);
         
         const Particle* const particles = swarm.getParticles();
         for (int i=0; i<Swarm::N; i++) {

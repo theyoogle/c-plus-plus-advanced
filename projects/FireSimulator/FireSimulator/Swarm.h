@@ -18,10 +18,11 @@ public:
     ~Swarm();
     
     const Particle* const getParticles();
-    void update();
+    void update(int elapsed);
     
 private:
-    Particle* particles;      // const pointer to particles
+    Particle* particles;
+    int lastTime;
 };
 
 #endif /* Swarm_h */

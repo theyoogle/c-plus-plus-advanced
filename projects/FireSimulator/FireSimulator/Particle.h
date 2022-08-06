@@ -22,15 +22,15 @@ struct Particle {
         y = 0;
         
         angle = (2 * M_PI * rand()) / RAND_MAX;
-        speed = (0.001 * rand()) / RAND_MAX;
+        speed = (0.0001 * rand()) / RAND_MAX;
     }
     
-    void update() {
+    void update(int interval) {
         double xSpeed = speed * cos(angle);
         double ySpeed = speed * sin(angle);
         
-        x += xSpeed;
-        y += ySpeed;
+        x += xSpeed * interval;
+        y += ySpeed * interval;
     }
 };
 

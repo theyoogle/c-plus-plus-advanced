@@ -9,6 +9,7 @@
 
 Swarm::Swarm() {
     particles = new Particle[N];
+    lastTime = 0;
 }
 
 Swarm::~Swarm() {
@@ -19,8 +20,10 @@ const Particle* const Swarm::getParticles() {
     return particles;
 }
 
-void Swarm::update() {
+void Swarm::update(int elapsed) {
+    int interval = elapsed - lastTime;
     for (int i=0; i<N; i++) {
-        particles[i].update();
+        particles[i].update(interval);
     }
+    lastTime = elapsed;
 }
