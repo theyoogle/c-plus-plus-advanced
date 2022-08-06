@@ -6,7 +6,6 @@
 //
 
 #include <iostream>
-#include <stdlib.h>
 #include <SDL.h>
 #include <math.h>
 
@@ -16,8 +15,6 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    
-    srand(time(NULL));
     
     Screen screen;
     if (screen.init() == false) {
@@ -42,7 +39,7 @@ int main(int argc, const char * argv[]) {
             Particle particle = particles[i];
             
             int x = (particle.x + 1) * Screen::SCREEN_WIDTH/2;
-            int y = (particle.y + 1) * Screen::SCREEN_HEIGHT/2;
+            int y = particle.y * Screen::SCREEN_WIDTH/2 + Screen:: SCREEN_HEIGHT/2;
             
             screen.setPixel(x, y, red, green, blue);
         }

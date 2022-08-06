@@ -9,32 +9,28 @@
 #define Particle_h
 
 #include <stdlib.h>
+#include <math.h>
 
 struct Particle {
     double x;
     double y;
-    double xSpeed;
-    double ySpeed;
+    double speed;
+    double angle;
 
     Particle() {
-        x = ((2.0 * rand()) / RAND_MAX) - 1;
-        y = ((2.0 * rand()) / RAND_MAX) - 1;
+        x = 0;
+        y = 0;
         
-        xSpeed = 0.001 * (((2.0 * rand()) / RAND_MAX) - 1);
-        ySpeed = 0.001 * (((2.0 * rand()) / RAND_MAX) - 1);
+        angle = (2 * M_PI * rand()) / RAND_MAX;
+        speed = (0.001 * rand()) / RAND_MAX;
     }
     
     void update() {
+        double xSpeed = speed * cos(angle);
+        double ySpeed = speed * sin(angle);
+        
         x += xSpeed;
         y += ySpeed;
-        
-        if (x <= -1.0 || x >= 1.0) {
-            xSpeed = -xSpeed;
-        }
-        
-        if (y <= -1.0 || y >= 1.0) {
-            ySpeed = -ySpeed;
-        }
     }
 };
 

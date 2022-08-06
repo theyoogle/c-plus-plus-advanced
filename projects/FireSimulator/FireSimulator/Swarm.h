@@ -12,7 +12,7 @@
 
 class Swarm {
 public:
-    const static int N = 1000;
+    const static int N = 5000;
     
     Swarm();
     ~Swarm();
