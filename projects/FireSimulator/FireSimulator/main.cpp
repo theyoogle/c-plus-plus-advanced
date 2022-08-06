@@ -25,8 +25,6 @@ int main(int argc, const char * argv[]) {
     
     while (true) {
         
-        screen.clear();
-        
         int elapsed = SDL_GetTicks();
         int red = (1 + sin(elapsed * 0.0001)) * 128;
         int green = (1 + sin(elapsed * 0.0002)) * 128;
@@ -43,6 +41,8 @@ int main(int argc, const char * argv[]) {
             
             screen.setPixel(x, y, red, green, blue);
         }
+        
+        screen.boxBlur();
         
         screen.update();
         

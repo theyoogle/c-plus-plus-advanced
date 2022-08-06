@@ -22,13 +22,14 @@ public:
     void update();
     void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
     void close();
-    void clear();
+    void boxBlur();
     
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Texture* texture;
-    Uint32* pixels;
+    Uint32* pixels1;
+    Uint32* pixels2;
     SDL_Event event;
 };
 
